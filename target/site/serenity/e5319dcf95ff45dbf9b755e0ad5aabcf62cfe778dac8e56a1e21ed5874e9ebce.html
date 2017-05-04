@@ -36,12 +36,12 @@
         var plot1 = $.jqplot('coverage_pie_chart', [
             [
                 ['Passing', 0],
-                ['Pending', 0],
+                ['Pending', 1],
                 ['Ignored', 0],
                 ['Failing', 0],
                 ['Errors',  0],
                 ['Compromised',  0],
-                ['Untested',  1],
+                ['Untested',  0],
             ]
         ], {
             gridPadding: {top: 0, bottom: 38, left: 0, right: 0},
@@ -69,12 +69,12 @@
             },
             series: [
                 {label: '0 requirements tested successfully'},
-                {label: '0 requirements pending'},
+                {label: '1 requirements pending'},
                 {label: '0} requirements skipped'},
                 {label: '0} requirements with failures'},
                 {label: '0} requirements with errors'},
                 {label: '0} requirements compromised'},
-                {label: '1} requirements untested'},
+                {label: '0} requirements untested'},
             ]
         });
         // Results table
@@ -172,7 +172,7 @@
             <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="fa fa-comments-o"></i> Capabilities</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated </span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 03-05-2017 17:17</span>
     <br style="clear:left"/>
 </div>
 
@@ -205,7 +205,6 @@
                                         <th>Fail&nbsp;<i class="icon-thumbs-down"></i></th>
                                         <th>Pending&nbsp;<i class="icon-calendar"></i></th>
                                         <th>Ignored&nbsp;<i class="icon-ban-circle"></i></th>
-                                            <th>Untested&nbsp;<i class="icon-question"></i></th>
                                     </tr>
                                 </head>
                                 <body>
@@ -214,17 +213,16 @@
                                         <td>1</td>
                                         <td>0</td>
                                         <td>0</td>
-                                        <td>0</td>
                                         <td>1</td>
-                                            <td>1</td>
+                                        <td>0</td>
                                     </tr>
 
                                 <tr>
                                     <td class="summary-leading-column"><a href="#test-results-table">Acceptance Criteria (tests)</a></td>
+                                    <td>2</td>
                                     <td>0</td>
                                     <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td>2</td>
                                     <td>0</td>
                                     <td></td>
                                 </tr>
@@ -252,10 +250,10 @@
         <body>
         <tr>
             <td class="summary-leading-column">Automated</td>
-            <td>0</td>
+            <td>2</td>
             <td>0 (0%)</td>
             <td>0 (0%)</td>
-            <td>0 (0%)</td>
+            <td>2 (100%)</td>
             <td>0 (0%)</td>
         </tr>
         <tr>
@@ -268,10 +266,10 @@
         </tr>
         <tr>
             <td class="summary-leading-column">Total</td>
-            <td>0</td>
+            <td>2</td>
             <td>0 (0%)</td>
             <td>0 (0%)</td>
-            <td>0 (0%)</td>
+            <td>2 (100%)</td>
             <td>0 (0%)</td>
         </tr>
         <tr>
@@ -313,14 +311,14 @@
 
 
 
-                <tr class="test-SUCCESS requirementRow">
+                <tr class="test-PENDING requirementRow">
                     <td class="requirementRowCell">
                         <span class="status_icon"><i class='fa fa-square-o pending-icon ' title='PENDING'></i></span>
                         <span style="display:none">2</span>
                     </td>
                     <td class="cardNumber requirementRowCell"></td>
 
-                    <td class="SUCCESS-text requirementRowCell">
+                    <td class="PENDING-text requirementRowCell">
                         <a href="javaScript:void(0)" class="read-more-link">
                             <img src="images/plus.png" height="16"/></a>
                         <span class="requirementName"><a
@@ -332,10 +330,10 @@ I want to look up word definitions</div>
                     </td>
 
 
-                    <td class="greentext highlighted-value requirementRowCell">0</td>
+                    <td class="greentext highlighted-value requirementRowCell">2</td>
 <!--
                     <td class="greentext requirementRowCell">0</td>
-                    <td class="bluetext requirementRowCell">0</td>
+                    <td class="bluetext requirementRowCell">2</td>
                     <td class="redtext requirementRowCell">0</td>
                     <td class="lightorangetext requirementRowCell">0</td>
                     <td class="violettext requirementRowCell">0</td>
@@ -358,67 +356,67 @@ I want to look up word definitions</div>
         </td>
         <td width="125px">
             <div class="percentagebar"
-                 title="  - Total tests: 0
+                 title="  - Total tests: 2
   - Passing tests: 0 (0%)
   - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
-  - Pending tests: 0 (0%)
+  - Pending tests: 2 (100%)
   - Ignored or skipped tests: 0 (0%)"
                  style="width: 125px;">
                 <div class="pendingbar"
-                     title="  - Total tests: 0
+                     title="  - Total tests: 2
   - Passing tests: 0 (0%)
   - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
-  - Pending tests: 0 (0%)
+  - Pending tests: 2 (100%)
   - Ignored or skipped tests: 0 (0%)"
-                     style="width: 0px;">
+                     style="width: 125px;">
                     <div class="ignoredbar"
                          style="width: 0px;"
-                         title="  - Total tests: 0
+                         title="  - Total tests: 2
   - Passing tests: 0 (0%)
   - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
-  - Pending tests: 0 (0%)
+  - Pending tests: 2 (100%)
   - Ignored or skipped tests: 0 (0%)">
                         <div class="compromisedbar"
                              style="width: 0px;"
-                             title="  - Total tests: 0
+                             title="  - Total tests: 2
   - Passing tests: 0 (0%)
   - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
-  - Pending tests: 0 (0%)
+  - Pending tests: 2 (100%)
   - Ignored or skipped tests: 0 (0%)">
                             <div class="errorbar"
                                  style="width: 0px;"
-                                 title="  - Total tests: 0
+                                 title="  - Total tests: 2
   - Passing tests: 0 (0%)
   - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
-  - Pending tests: 0 (0%)
+  - Pending tests: 2 (100%)
   - Ignored or skipped tests: 0 (0%)">
                                 <div class="failingbar"
                                      style="width: 0px;"
-                                     title="  - Total tests: 0
+                                     title="  - Total tests: 2
   - Passing tests: 0 (0%)
   - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
-  - Pending tests: 0 (0%)
+  - Pending tests: 2 (100%)
   - Ignored or skipped tests: 0 (0%)">
                                     <div class="passingbar"
                                          style="width: 0px;"
-                                         title="  - Total tests: 0
+                                         title="  - Total tests: 2
   - Passing tests: 0 (0%)
   - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
-  - Pending tests: 0 (0%)
+  - Pending tests: 2 (100%)
   - Ignored or skipped tests: 0 (0%)">
                                     </div>
                                 </div>
@@ -440,6 +438,73 @@ I want to look up word definitions</div>
 
                             </div>
                         </div>
+<table>
+    <tr>
+        <td>
+            <div><h3>Acceptance Criteria</h3></div>
+            <div id="test_list_tests" class="table">
+                <div class="test-results">
+                    <table id="test-results-table">
+                        <thead>
+                        <tr>
+                            <th width="50" class="test-results-heading">&nbsp;</th>
+                            <th width="%" class="test-results-heading">Tests</th>
+                            <th width="70" class="test-results-heading">Steps</th>
+
+                            <th width="100" class="test-results-heading">Duration<br>(seconds)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="test-PENDING">
+                                <td><span class="summary-icon"><i class='fa fa-square-o pending-icon ' title='PENDING'></i></span>
+                                    
+                                    <span style="display:none">PENDING</span></td>
+                                <td class="PENDING-text">
+                                    <div class="ellipsis">
+
+                                        <a href="6819e4caa016fca19d69755e1a276d0575da5b331cd25f2a2353f483b375819a.html" class="ellipsis"
+                                           title="Looking up the definition of 'apple' ">
+                                            Looking up the definition of 'apple'
+                                                <span class="related-issue-title"></span>
+                                        </a>
+                                    </div>
+                                </td>
+
+                                <td class="lightgreentext">3</td>
+
+
+                                <td class="lightgreentext">0.21</td>
+                            </tr>
+
+                            <tr class="test-PENDING">
+                                <td><span class="summary-icon"><i class='fa fa-square-o pending-icon ' title='PENDING'></i></span>
+                                    
+                                    <span style="display:none">PENDING</span></td>
+                                <td class="PENDING-text">
+                                    <div class="ellipsis">
+
+                                        <a href="d4944400d294ff29f77406b981c3153f0356d2f35924138a32dded9ab0c3df12.html" class="ellipsis"
+                                           title="Looking up the definition of 'pear' ">
+                                            Looking up the definition of 'pear'
+                                                <span class="related-issue-title"></span>
+                                        </a>
+                                    </div>
+                                </td>
+
+                                <td class="lightgreentext">3</td>
+
+
+                                <td class="lightgreentext">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+</div>
                 </div>
             </div>
         </div>

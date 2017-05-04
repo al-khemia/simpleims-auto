@@ -1,6 +1,7 @@
 com\simpleims\steps\AgentSteps.class
 com\simpleims\steps\serenity\EndUserSteps.class
-com\simpleims\steps\DefinitionSteps.class
-com\simpleims\pages\DictionaryPage.class
 com\simpleims\DefinitionTestSuite.class
 com\simpleims\pages\DictionaryPage$1.class
+com\simpleims\steps\DefinitionSteps.class
+com\simpleims\pages\DictionaryPage.class
+com\simpleims\pages\HomePage.class

@@ -10,13 +10,14 @@ import com.simpleims.steps.serenity.EndUserSteps;
 public class DefinitionSteps {
 
     @Steps
-    EndUserSteps anna;
+    EndUserSteps jack;
 
-    @Given("the user is on the Wikionary home page")
-    public void givenTheUserIsOnTheWikionaryHomePage() {
-        anna.is_the_home_page();
+    @Given("the user is on the ims home page")
+    public void givenTheUserIsOnTheIMSHomePage() {
+        jack.is_the_home_page();
     }
 
+/*
     @When("the user looks up the definition of the word '(.*)'")
     public void whenTheUserLooksUpTheDefinitionOf(String word) {
         anna.looks_for(word);
@@ -26,5 +27,6 @@ public class DefinitionSteps {
     public void thenTheyShouldSeeADefinitionContainingTheWords(String definition) {
         anna.should_see_definition(definition);
     }
+*/
 
 }
