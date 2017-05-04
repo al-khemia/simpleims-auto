@@ -1,19 +1,15 @@
 package com.simpleims.pages;
 
-import ch.lambdaj.function.convert.Converter;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
-
-import static ch.lambdaj.Lambda.convert;
+import org.openqa.selenium.WebDriver;
 
 @DefaultUrl("http://localhost:9000/")
-public class HomePage extends PageObject {
+public class LoginAgentPage extends PageObject {
+
+    WebDriver driver = this.getDriver();
 
     @FindBy(name="username")
     private  WebElementFacade username;
@@ -39,10 +35,7 @@ public class HomePage extends PageObject {
         btn_submit.click();
     }
 
-    public void login() {
-        enter_username();
-        enter_password();
-        submit_login();
+    public String validate_page() {
+        return driver.getCurrentUrl();
     }
-
 }

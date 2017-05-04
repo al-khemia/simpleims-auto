@@ -1,37 +1,33 @@
 package com.simpleims.steps.serenity;
 
 
-import com.simpleims.pages.HomePage;
+import com.simpleims.pages.LoginAgentPage;
 import net.thucydides.core.annotations.Step;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class EndUserSteps {
 
-    HomePage homePage;
-
-//    @Step
-//    public void enters(String keyword) {
-//        dictionaryPage.enter_keywords(keyword);
-//    }
-//
-//    @Step
-//    public void starts_search() {
-//        dictionaryPage.lookup_terms();
-//    }
-//
-//    @Step
-//    public void should_see_definition(String definition) {
-//        assertThat(dictionaryPage.getDefinitions(), hasItem(containsString(definition)));
-//    }
+    LoginAgentPage loginPage;
 
     @Step
-    public void is_the_home_page() {
-        homePage.open();
-        homePage.login();
+    public void is_the_login_page() {
+        loginPage.open();
     }
 
-//    @Step
-//    public void looks_for(String term) {
-//        enters(term);
-//        starts_search();
-//    }
+    @Step
+    public void enter_credentials() {
+        login();
+    }
+
+    @Step
+    public void should_be_incidents_page(String url) {
+        assertThat(url, equals(loginPage.validate_page()));
+    }
+
+    public void login() {
+        loginPage.enter_username();
+        loginPage.enter_password();
+        loginPage.submit_login();
+    }
 }

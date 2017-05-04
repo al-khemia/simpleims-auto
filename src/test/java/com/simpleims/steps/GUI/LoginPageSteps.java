@@ -1,5 +1,6 @@
 package com.simpleims.steps.GUI;
 
+import cucumber.api.PendingException;
 import net.thucydides.core.annotations.Steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -7,7 +8,7 @@ import cucumber.api.java.en.When;
 
 import com.simpleims.steps.serenity.EndUserSteps;
 
-public class GoToHomePageSteps {
+public class LoginPageSteps {
 
     @Steps
     EndUserSteps jack;
@@ -23,8 +24,9 @@ public class GoToHomePageSteps {
         jack.enter_credentials();
     }
 
-    @Then("agent should be in the incidents page")
-    public void thenAgentShouldBeInTheIncidentsPage(String definition) {
-        jack.should_be_incidents_page();
+
+    @Then("^agent should see the incidents page \"([^\"]*)\"$")
+    public void agentShouldSeeTheIncidentsPage(String url) throws Throwable {
+        jack.should_be_incidents_page(url);
     }
 }
