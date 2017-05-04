@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.simpleims.DefinitionTestSuite
--------------------------------------------------------------------------------
-Tests run: 19, Failures: 0, Errors: 0, Skipped: 11, Time elapsed: 16.367 sec - in com.simpleims.DefinitionTestSuite

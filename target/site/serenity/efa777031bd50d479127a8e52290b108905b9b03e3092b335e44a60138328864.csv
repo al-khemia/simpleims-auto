@@ -1,5 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Getagentinfo","Get currently logged in agent","SUCCESS","2017-05-03T17:17:10.759-05:00","0.0","5.0"
-"Go to Home Page","Go to Home page","PENDING","2017-05-03T17:17:15.835-05:00","0.0","7.85"
-"Lookup a definition","Looking up the definition of 'apple'","PENDING","2017-05-03T17:17:08.060-05:00","0.0","0.21"
-"Lookup a definition","Looking up the definition of 'pear'","PENDING","2017-05-03T17:17:10.713-05:00","0.0","0.0"

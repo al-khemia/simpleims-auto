@@ -1,17 +1,12 @@
 package com.simpleims.steps.serenity;
 
-import com.simpleims.pages.DictionaryPage;
+
 import com.simpleims.pages.HomePage;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.steps.ScenarioSteps;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasItem;
 
 public class EndUserSteps {
 
-    HomePage dictionaryPage;
+    HomePage homePage;
 
 //    @Step
 //    public void enters(String keyword) {
@@ -30,8 +25,8 @@ public class EndUserSteps {
 
     @Step
     public void is_the_home_page() {
-        dictionaryPage.open();
-        dictionaryPage.login();
+        homePage.open();
+        homePage.login();
     }
 
 //    @Step

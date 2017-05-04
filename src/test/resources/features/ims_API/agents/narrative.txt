@@ -1,3 +1,0 @@
-AGENTS
-Agents represent the representatives of the company providing products or services to the customers.
-An agent can create, update, and own incidents.
