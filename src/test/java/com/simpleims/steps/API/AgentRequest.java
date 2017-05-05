@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.equalTo;
 /**
  * Created by linfante on 5/3/2017.
  */
-public class AgentSteps {
+public class AgentRequest {
     CookieFilter cookie = new CookieFilter();
 
     @Given("^I login agent$")

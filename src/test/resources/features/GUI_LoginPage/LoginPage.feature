@@ -1,3 +1,4 @@
+@Sprint1
 Feature: Login Agent
   In order to access to ims
   As an Agent
@@ -6,4 +7,4 @@ Feature: Login Agent
 Scenario: Login into Simple IMS
 Given agent is on the ims login page
 When agent enter credentials
-Then agent should see the incidents page "http://localhost:9000/#/"
+Then agent should see the incidents page "http://localhost:9000/"

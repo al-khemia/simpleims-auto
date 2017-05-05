@@ -3,13 +3,14 @@ package com.simpleims.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 @DefaultUrl("http://localhost:9000/")
 public class LoginAgentPage extends PageObject {
-
-    WebDriver driver = this.getDriver();
 
     @FindBy(name="username")
     private  WebElementFacade username;
@@ -35,7 +36,7 @@ public class LoginAgentPage extends PageObject {
         btn_submit.click();
     }
 
-    public String validate_page() {
-        return driver.getCurrentUrl();
+    public String get_current_url() {
+        return getDriver().getCurrentUrl();
     }
 }
