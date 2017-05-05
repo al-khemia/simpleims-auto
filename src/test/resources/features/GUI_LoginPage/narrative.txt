@@ -1,2 +1,0 @@
-HOMEPAGE
-Shows a list with my incidents and list of unassigned incidents
