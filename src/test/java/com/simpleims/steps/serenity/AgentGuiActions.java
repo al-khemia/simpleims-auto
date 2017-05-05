@@ -13,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleContains;
 
-public class AgentSteps {
+public class AgentGuiActions {
 
     LoginAgentPage loginPage;
     MenuPage menuPage;

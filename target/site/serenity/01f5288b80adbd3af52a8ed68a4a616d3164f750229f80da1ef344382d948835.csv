@@ -1,3 +1,4 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Agents","Get currently logged in agent","SUCCESS","2017-05-04T17:43:06.145-05:00","0.0","5.36"
-"Login Agent","Login into Simple IMS","SUCCESS","2017-05-04T17:43:13.774-05:00","0.0","11.29"
+"Agents API","Get complete list of active agents","SUCCESS","2017-05-05T17:24:31.900-05:00","0.0","0.0"
+"Agents API","Get currently logged in agent","SUCCESS","2017-05-05T17:24:30.534-05:00","0.0","1.32"
+"Agent GUI","Login into Simple IMS","SUCCESS","2017-05-05T17:24:32.345-05:00","0.0","9.45"

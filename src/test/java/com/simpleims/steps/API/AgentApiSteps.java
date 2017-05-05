@@ -1,6 +1,7 @@
 package com.simpleims.steps.API;
 
 
+import com.simpleims.steps.serenity.AgentApiActions;
 import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
@@ -12,6 +13,9 @@ import io.restassured.filter.cookie.CookieFilter;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
+import org.junit.Test;
 
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.Matchers.equalTo;
@@ -20,59 +24,49 @@ import static org.hamcrest.Matchers.equalTo;
 /**
  * Created by linfante on 5/3/2017.
  */
-public class AgentRequest {
-    RequestSpecification request;
-    Response response;
-    ValidatableResponse json;
-    CookieFilter cookie = new CookieFilter();
+public class AgentApiSteps {
+    @Steps
+    AgentApiActions agent;
 
     @Before
+    @Given("^Agent has been authenticated$")
+    public void agentHasBeenAuthenticated() throws Throwable {
+        agent.authenticate();
+        agent.sent_post_login();
+    }
+
+    @Step
     @Given("^Agent set an authentication request$")
     public void agent_set_an_authentication_request() throws Throwable {
-
-        request = given().
-                log().all().
-                filter(cookie).
-                redirects().follow(false).
-                formParam("username", "jacksmith").
-                formParam("password", "group123");
-//        when().
-//                log().all().
-//                post("http://localhost:9000/login").
-//        then().
-//                statusCode(303).
-//                log().all();
-
+        agent.authenticate();
     }
 
+    @Step
     @When("^Agent sends a POST login request$")
     public void agent_sends_a_POST_login_request() throws Throwable {
-        response = request.when().
-                post("http://localhost:9000/login");
+        agent.sent_post_login();
     }
 
+    @Step
     @Then("^Response has status code (\\d+)$")
     public void response_has_status_code(int code) throws Throwable {
-        json = response.then().
-                statusCode(code).
-                log().all();
+        agent.validate_status(code);
     }
 
+    @Step
     @When("^I GET agent info$")
     public void i_GET_agent_info() throws Throwable {
-//        given().
-//                log().all().
-//                filter(cookie).
-        response = request.when().
-                get("http://localhost:9000/agent");
-
-
+        agent.get_agent_info();
     }
 
-
+    @Step
     @Then("^Email should be \"([^\"]*)\"$")
     public void email_should_be(String current_email) throws Throwable {
-        json = response.then().body("email", equalTo(current_email)).
-                log().all();
+        agent.validate_email(current_email);
+    }
+
+    @Then("^Active should be \"([^\"]*)\"$")
+    public void active_should_be(Boolean current_active) throws Throwable {
+        agent.is_active(current_active);
     }
 }

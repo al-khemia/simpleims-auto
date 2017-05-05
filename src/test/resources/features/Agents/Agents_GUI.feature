@@ -1,5 +1,5 @@
 @Sprint1
-Feature: Login Agent
+Feature: Agent GUI
   In order to access to ims
   As an Agent
   I want to login
