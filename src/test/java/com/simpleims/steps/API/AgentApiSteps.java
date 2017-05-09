@@ -17,6 +17,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 
+import java.util.List;
+
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -60,13 +62,26 @@ public class AgentApiSteps {
     }
 
     @Step
-    @Then("^Email should be \"([^\"]*)\"$")
-    public void email_should_be(String current_email) throws Throwable {
-        agent.validate_email(current_email);
+    @Then("^Agent info is accurate$")
+    public void agent_info_is_accurate() throws Throwable {
+        agent.validate_email();
+        agent.is_active();
     }
 
-    @Then("^Active should be \"([^\"]*)\"$")
-    public void active_should_be(Boolean current_active) throws Throwable {
-        agent.is_active(current_active);
+    @When("^I GET agents list$")
+    public void iGETAgentsList() throws Throwable {
+        agent.get_agent_list();
     }
+
+    @Then("^username should be <username>$")
+    public void username_should_be_username(List<String> usernameList) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        // For automatic transformation, change DataTable to one of
+        // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
+        // E,K,V must be a scalar (String, Integer, Date, enum etc)
+        agent.validate_usernameList(usernameList);
+
+    }
+
 }
+

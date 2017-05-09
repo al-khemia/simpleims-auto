@@ -12,21 +12,26 @@ Scenario: Login agent
 Scenario: Get currently logged in agent
   When I GET agent info
   Then Response has status code 200
-  And Email should be "jack@bigsoftware.com"
-  And Active should be "true"
+  And Agent info is accurate
 
-  Scenario: Get complete list of active agents
-#    Given the following users exists:
-#      | name   | email              | twitter         |
-#      | Jack  | aslak@cucumber.io  | @aslak_hellesoy |
-#      | Ben | julien@cucumber.io | @jbpros         |
-#      | Jil   | matt@cucumber.io   | @mattwynne      |
-##      | Saron   | matt@cucumber.io   | @mattwynne      |
-#  When I GET agents list
-#  Then Then Response has status code 200
-#  And
+Scenario: Get complete list of active agents
+  When I GET agents list
+  Then Response has status code 200
+  And username should be <username>
+      | benj     |
+      | jwilliams|
+      | sgoresh  |
+      | linfante |
+#      | jacksmith|
 
 
 #Scenario: Get information for specific agent
+#  When I GET "linfante" agent info
+#  Then Response has status code 200
+#  And username should be "linfante"
+#  And fullname should be "Lina Infante"
+#  And Email should be "lina.infante@endava.com"
+#  And Active should be "true"
+
 #Scenario: Get incidents associated with agent
 #Scenario: Logout agent
