@@ -18,20 +18,28 @@ Scenario: Get complete list of active agents
   When I GET agents list
   Then Response has status code 200
   And username should be <username>
+    | jacksmith|
       | benj     |
       | jwilliams|
       | sgoresh  |
       | linfante |
-#      | jacksmith|
+
+Scenario: Get information for specific agent
+  When I GET specific agent info
+  Then Response has status code 200
+  And Specific agent info is accurate
+
+Scenario: Get incidents associated with agent
+  When I GET incidents associated with agent
+  Then Response has status code 200
+  And Number of incidents is correct
+
+Scenario: Logout agent
+  When I GET logout from simpleims
+  Then Response has status code 303
+
+  #Validate redirection
+  #GET, POST, PUT, PATCH DELETE,
+  #Ministry of testing
 
 
-#Scenario: Get information for specific agent
-#  When I GET "linfante" agent info
-#  Then Response has status code 200
-#  And username should be "linfante"
-#  And fullname should be "Lina Infante"
-#  And Email should be "lina.infante@endava.com"
-#  And Active should be "true"
-
-#Scenario: Get incidents associated with agent
-#Scenario: Logout agent

@@ -1,4 +1,4 @@
-package com.simpleims.steps.serenity;
+package com.simpleims.actions;
 
 
 import com.simpleims.pages.LoginAgentPage;

@@ -33,6 +33,18 @@ public class ReadProperties {
     }
 
     public Boolean getAgentActive() {
-        return Boolean.valueOf(properties.getProperty("agent.active"));
+        return Boolean.valueOf(properties.getProperty("spec.agent.active"));
+    }
+
+    public String getSpecAgentUsername() {
+        return properties.getProperty("spec.agent.username");
+    }
+
+    public String getSpecAgentEmail() {
+        return properties.getProperty("spec.agent.email");
+    }
+
+    public Boolean getSpecAgentActive() {
+        return Boolean.valueOf(properties.getProperty("spec.agent.active"));
     }
 }

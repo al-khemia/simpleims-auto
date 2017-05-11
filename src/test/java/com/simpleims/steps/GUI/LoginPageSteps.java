@@ -5,7 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import com.simpleims.steps.serenity.AgentGuiActions;
+import com.simpleims.actions.AgentGuiActions;
 
 public class LoginPageSteps {
 
@@ -28,4 +28,5 @@ public class LoginPageSteps {
     public void agentShouldSeeTheIncidentsPage(String url) throws Throwable {
         agent.should_be_incidents_page(url);
     }
+
 }

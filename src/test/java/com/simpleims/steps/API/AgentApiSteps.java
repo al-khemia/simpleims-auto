@@ -1,76 +1,73 @@
 package com.simpleims.steps.API;
 
 
-import com.simpleims.steps.serenity.AgentApiActions;
-import cucumber.api.PendingException;
-import cucumber.api.Scenario;
+import com.simpleims.actions.AgentApiActions;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.restassured.filter.cookie.CookieFilter;
-import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
-import io.restassured.specification.RequestSpecification;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
-import org.junit.Test;
 
 import java.util.List;
-
-import static net.serenitybdd.rest.SerenityRest.*;
-import static org.hamcrest.Matchers.equalTo;
 
 
 /**
  * Created by linfante on 5/3/2017.
  */
-public class AgentApiSteps {
+public class AgentApiSteps{
     @Steps
-    AgentApiActions agent;
+    AgentApiActions action;
 
     @Before
     @Given("^Agent has been authenticated$")
     public void agentHasBeenAuthenticated() throws Throwable {
-        agent.authenticate();
-        agent.sent_post_login();
-    }
-
-    @Step
-    @Given("^Agent set an authentication request$")
-    public void agent_set_an_authentication_request() throws Throwable {
-        agent.authenticate();
-    }
-
-    @Step
-    @When("^Agent sends a POST login request$")
-    public void agent_sends_a_POST_login_request() throws Throwable {
-        agent.sent_post_login();
+        action.authenticate();
+        action.sent_post_login();
     }
 
     @Step
     @Then("^Response has status code (\\d+)$")
     public void response_has_status_code(int code) throws Throwable {
-        agent.validate_status(code);
+        action.validate_status(code);
+    }
+
+    @Step
+    @Given("^Agent set an authentication request$")
+    public void agent_set_an_authentication_request() throws Throwable {
+        action.authenticate();
+    }
+
+    @Step
+    @When("^Agent sends a POST login request$")
+    public void agent_sends_a_POST_login_request() throws Throwable {
+        action.sent_post_login();
     }
 
     @Step
     @When("^I GET agent info$")
     public void i_GET_agent_info() throws Throwable {
-        agent.get_agent_info();
+        action.get_agent_info();
     }
 
     @Step
     @Then("^Agent info is accurate$")
     public void agent_info_is_accurate() throws Throwable {
-        agent.validate_email();
-        agent.is_active();
+        action.validate_email("current");
+        action.is_active("current");
+    }
+
+    @Step
+    @Then("^Specific agent info is accurate$")
+    public void specific_agent_info_is_accurate() throws Throwable {
+        action.validate_email("specific");
+        action.is_active("specific");
     }
 
     @When("^I GET agents list$")
     public void iGETAgentsList() throws Throwable {
-        agent.get_agent_list();
+        action.get_agent_list();
     }
 
     @Then("^username should be <username>$")
@@ -79,9 +76,28 @@ public class AgentApiSteps {
         // For automatic transformation, change DataTable to one of
         // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
         // E,K,V must be a scalar (String, Integer, Date, enum etc)
-        agent.validate_usernameList(usernameList);
+        action.validate_usernameList(usernameList);
 
     }
 
+    @When("^I GET specific agent info$")
+    public void iGETSpecificAgentInfo() throws Throwable {
+        action.get_specific_agent_info();
+    }
+
+    @When("^I GET incidents associated with agent$")
+    public void iGETIncidentsAssociatedWithAgent() throws Throwable {
+        action.get_agent_incidents();
+    }
+
+    @And("^Number of incidents is correct$")
+    public void numberOfIncidentsIsCorrect() throws Throwable {
+        action.validate_incident_numbers();
+    }
+
+    @When("^I GET logout from simpleims$")
+    public void iGETLogoutFromSimpleims() throws Throwable {
+        action.logout();
+    }
 }
 
