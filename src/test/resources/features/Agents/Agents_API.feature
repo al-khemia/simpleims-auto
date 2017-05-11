@@ -18,7 +18,7 @@ Scenario: Get complete list of active agents
   When I GET agents list
   Then Response has status code 200
   And username should be <username>
-    | jacksmith|
+      | jacksmith|
       | benj     |
       | jwilliams|
       | sgoresh  |

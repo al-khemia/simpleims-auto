@@ -22,14 +22,17 @@ public class AgentApiActions {
     Response response;
     ValidatableResponse json;
     CookieFilter cookie = new CookieFilter();
-    ReadProperties prop;
+    ReadProperties prop = new ReadProperties();
 
     public AgentApiActions() throws IOException {
-        prop = new ReadProperties();
+        RestAssured.baseURI = prop.getURL();
+        RestAssured.port = 9000;
+//        cookie = new CookieFilter();
     }
 
     public void authenticate() {
         request = given().
+                log().all().
                 filter(cookie).
                 redirects().follow(false).
                 formParam("username", prop.getAgentUsername()).
@@ -39,7 +42,7 @@ public class AgentApiActions {
 
     public void sent_post_login() {
         response = request.when().
-                post("/login");
+                post("login");
     }
 
 
