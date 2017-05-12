@@ -39,7 +39,7 @@ Scenario: Logout agent
   Then Response has status code 303
 
   #Validate redirection
-  #GET, POST, PUT, PATCH DELETE,
+  #GET, POST, *PUT, *PATCH DELETE,
   #Ministry of testing
 
 

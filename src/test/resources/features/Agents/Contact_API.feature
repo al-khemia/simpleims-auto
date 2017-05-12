@@ -3,9 +3,13 @@ Feature: Contacts API
   As an Agent
   I want to manage contacts info
 
-Scenario: Get information for an specific contact
-  Given I have a contact ID
-  When Agent sends a POST
-  Then Response has status code 200
+Scenario: Update an existing contact
+  When Agent sends a POST to update contact
+  Then Response has status code 303
+
+  Scenario: Delete an existing contact
+    When Agent sends a DELETE to delete contact
+    Then Response has status code 303
 
 
+#https://www.udemy.com/rest-api-testing-with-rest-assuredpostman-part1/learn/v4/t/lecture/6659756?start=0

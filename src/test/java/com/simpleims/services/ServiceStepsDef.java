@@ -1,15 +1,19 @@
-package com.simpleims.actions;
+package com.simpleims.services;
 
+import com.simpleims.models.Contact;
 import com.simpleims.utils.ReadProperties;
 import io.restassured.RestAssured;
 import io.restassured.filter.cookie.CookieFilter;
+import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.Matchers.*;
@@ -17,17 +21,17 @@ import static org.hamcrest.Matchers.*;
 /**
  * Created by linfante on 5/5/2017.
  */
-public class AgentApiActions {
+public class ServiceStepsDef {
     RequestSpecification request;
     Response response;
     ValidatableResponse json;
     CookieFilter cookie = new CookieFilter();
     ReadProperties prop = new ReadProperties();
+    Contact contact = new Contact();
 
-    public AgentApiActions() throws IOException {
+    public ServiceStepsDef() throws IOException {
         RestAssured.baseURI = prop.getURL();
         RestAssured.port = 9000;
-//        cookie = new CookieFilter();
     }
 
     public void authenticate() {
@@ -44,7 +48,6 @@ public class AgentApiActions {
         response = request.when().
                 post("login");
     }
-
 
     public void validate_status(int code) {
         json = response.then().log().all().
@@ -105,5 +108,33 @@ public class AgentApiActions {
                 get("/logout");
     }
 
-}
+    public void sent_post_update_contact(String current_contact) {
 
+        Map<String, Object> jsonAsMap = new HashMap<>();
+        jsonAsMap.put("email", contact.getEmail());
+        jsonAsMap.put("fullname", contact.getFullname());
+        jsonAsMap.put("phone", contact.getFullname());
+
+        request = given().log().all().
+                filter(cookie).
+                redirects().follow(false).
+                contentType(ContentType.JSON).
+                body(jsonAsMap);
+
+        response = request.
+                when().log().all().
+                post("/contacts/1");
+    }
+
+    public void sent_delete_contact() {
+
+        request = given().log().all().
+                filter(cookie).
+                redirects().follow(false);
+
+        response = request.
+                when().log().all().
+                delete("/contacts/4");
+
+    }
+}

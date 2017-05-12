@@ -14,7 +14,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 @DefaultUrl("http://localhost:9000/#/")
 public class WelcomePage extends PageObject {
 
-
     @FindBy(css = ".btn-success")
     private WebElementFacade btn_create_incident;
 

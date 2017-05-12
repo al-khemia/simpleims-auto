@@ -1,32 +1,48 @@
 package com.simpleims.steps.GUI;
 
+import com.simpleims.pages.LoginAgentPage;
+import com.simpleims.pages.MenuPage;
+import com.simpleims.utils.ReadProperties;
 import net.thucydides.core.annotations.Steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import com.simpleims.actions.AgentGuiActions;
+import java.io.IOException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
 
 public class LoginPageSteps {
 
-    @Steps
-    AgentGuiActions agent;
+    LoginAgentPage loginPage;
+    MenuPage menuPage;
+    ReadProperties prop = new ReadProperties();
+
+    public LoginPageSteps() throws IOException {
+    }
 
     @Given("agent is on the ims login page")
     public void givenTheAgentIsOnTheIMSLoginPage() {
-        agent.is_the_login_page();
+        loginPage.open();
     }
-
 
     @When("agent enter credentials")
     public void whenTheAgentEnterCredentials() {
-        agent.enter_credentials();
+        login();
     }
-
 
     @Then("^agent should see the incidents page \"([^\"]*)\"$")
     public void agentShouldSeeTheIncidentsPage(String url) throws Throwable {
-        agent.should_be_incidents_page(url);
+        assertThat(loginPage.get_current_url(), equalToIgnoringCase(prop.getURL()));
+    }
+
+    public void login() {
+        loginPage.enter_username();
+        loginPage.enter_password();
+        loginPage.submit_login();
+        menuPage.is_user_visible();
+
     }
 
 }
